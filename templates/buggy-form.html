@@ -1,18 +1,180 @@
 {% extends "base.html" %}
 
 {% block content %}
-
-  <h1>Make buggy</h1>
-  <p>
+  {% if buggy %}
+    <h1>Editing Buggy #{{ buggy['id'] }}</h1>
+  {% else %}
+    <h1>Buggy Creation</h1>
+  {% endif %}
+  <p style="font-weight: bolder; color: red;">
     {{ msg }}
   </p>
-  
-  <form action="/new" method="post">
-    <label for="qty_wheels">Number of wheels:</label>
-    <input type="text" name="qty_wheels" />
-    <input type="submit" class="button">
-  </form>
+  <p style="font-weight: bolder; color: red;">
+    {{ violations }}
+  </p>
 
+  <p style="font-weight: bolder; color: red;">
+    {{ violations1 }}
+  </p>
+
+  <p style="font-weight: bolder; color: red;">
+    {{ violations2 }}
+  </p>
+
+  <p style="font-weight: bolder; color: red;">
+    {{ violations3 }}
+  </p>
+
+  <p style="font-weight: bolder; color: red;">
+    {{ violation4 }}
+  </p>
+
+
+  <form action="/new" method="post" style="font-weight: bold;">
+    <input type="hidden" name="id" value="{{ buggy['id'] }}" />
+    <label for="qty_wheels">Number of wheels: </label>
+    <input type="number" id="qty_wheels"  name="qty_wheels"  min="4"  step="2"  value=4>
+    <br>
+
+    <label for="power_type">Primary motive power: </label>
+    <select name ="power_type">
+      <option selected value = "petrol">Petroleum-fuelled internal combustion engine</option>
+      <option value="fusion">Fusion reactor</option>
+      <option value="steam">Steam engine</option>
+      <option value="bio">Bio-fuelled internal combustion engine</option>
+      <option value="electric">Lithium-ion battery</option>
+      <option value="rocket">Rocket fuel</option>
+      <option value="hamster">Hamster</option>
+      <option value="thermo">Thermonuclear reactor</option>
+      <option value="solar">Bank of solar panels</option>
+      <option value="wind">Sailing rig</option>
+    </select>
+    
+    <label for="power_units">Primary motive power units: </label>
+    <input type="text" name="power_units" value="{{ 1 }}" />
+    <br>
+
+    <label for="aux_power_type">Auxiliary motive power: </label>
+    <select name ="aux_power_type">
+      <option value="petrol">Petroleum-fuelled internal combustion engine</option>
+      <option selected value="fusion">Fusion reactor</option>
+      <option value="steam">Steam engine</option>
+      <option value="bio">Bio-fuelled internal combustion engine</option>
+      <option value="electric">Lithium-ion battery</option>
+      <option value="rocket">Rocket fuel</option>
+      <option value="hamster">Hamster</option>
+      <option value="thermo">Thermonuclear reactor</option>
+      <option value="solar">Bank of solar panels</option>
+      <option value="wind">Sailing rig</option>
+    </select>
+    <label for="aux_power_units">Auxiliary motive power units: </label>
+    <input type="text" name="aux_power_units" value="{{ 0 }}" />
+    <br>
+
+    <label for="hamster_booster">Hamster booster: </label>
+    <input type="text" name="hamster_booster" value="{{ 0 }}" />
+    <br>
+
+    <label for="tyres">Type of tyres: </label>
+    <select name ="tyres">
+      <option value = "knobbly">Knobbly tyre</option>
+      <option value="slick">Slick tyre</option>
+      <option value="steelband">Steelband tyre</option>
+      <option value="reactive">Reactive tyre</option>
+      <option value="maglev">Maglev tyre</option>
+    </select>
+    <br>
+
+    <label for="qty_tyres">Number of tyres: </label>
+    <input type="number" name="qty_tyres" value="{{ 4 }}" min="4"  step="2"  value=4/>
+    <br>
+
+    <label for="armour">Armour: </label>
+    <select name ="armour">
+      <option selected value = "none">No Armour</option>
+      <option value="wood">Wooden Armour</option>
+      <option value="aluminium">Aluminium Armour</option>
+      <option value="thinsteel">Thinsteel Armour</option>
+      <option value="thicksteel">Thicksteel Armour</option>
+      <option value="titanium">Titanium Armour</option>
+    </select>
+    <br>
+
+    <label for="attack">Offensive capability: </label>
+    <select name ="attack">
+      <option selected value = "none">No attacks</option>
+      <option value="spike">Spike attack</option>
+      <option value="flame">Flame attack</option>
+      <option value="charge">Charge attack</option>
+      <option value="biohazard">Biohazard attack</option>
+    </select>
+    <br>
+
+    <label for="qty_attacks">Number of attacks: </label>
+    <input type="input" name="qty_attacks" value="0" />
+    <br>
+
+    <label for="fireproof">Do you want your buggy to be fireproof? </label>
+    <select name ="fireproof">
+      <option selected value = "no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+    <br>
+
+    <label for="insulated">Do you want your buggy to be insulated? </label>
+    <select name ="insulated">
+      <option selected value = "no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+    <br>
+
+    <label for="antibiotic">Do you want your buggy to be antibiotic? </label>
+    <select name ="antibiotic">
+      <option selected value = "no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+    <br>
+    
+    <label for="banging">Do you want your buggy to have a banging sound system? </label>
+    <select name ="banging">
+      <option selected value = "no">No</option>
+      <option value="yes">Yes</option>
+    </select>
+    <br>
+
+    <label for="algo">What Algorythm do you want your buggy to use? </label>
+    <select name ="algo">
+      <option selected value = "steady">Balanced</option>
+      <option value="defensive">Defensive</option>
+      <option value="offensive">Offensive</option>
+      <option value="titfortat">Hostile</option>
+      <option value="random">Random</option>
+      <option value="buggy">just don't select this</option>
+    </select>
+    <br>
+
+    <label for="flag_color">Main flag colour: </label>
+    <input type="color" name="flag_color" value="#FFFFFF" />
+    <label for="flag_color_secondary">Secondary flag colour: </label>
+    <input type="color" name="flag_color_secondary" value="#000000" />
+    <br>
+
+    <label for="flag_pattern">Flag pattern: </label>
+    <select name ="flag_pattern">
+      <option selected value = "plain">Plain pattern</option>
+      <option value="vstripe">Vertical stripe</option>
+      <option value="hstripe">Horizontal stripe</option>
+      <option value="dstripe">Diagonal stripe</option>
+      <option value="checker">Checker pattern</option>
+      <option value="spot">Spot pattern</option>
+    </select>
+    <br>
+    <input type="submit" class="button">
+    <br>
+    <input type="reset" class="button">
+    <br>
+    
+  </form>
   <p>
     <a href="/" class="button">home</a>
   </p>

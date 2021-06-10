@@ -1,0 +1,185 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  .cs1999-tasks {
+    border-top: 1px solid black;
+    margin-top: 4em;
+  }
+  .cs1999-tasks .task {
+    margin: 1em;
+    padding: 1em;
+    border: 1px solid black;
+  }
+  .cs1999-tasks .task h2 {
+    border-bottom: 3px solid gray;
+    background-color: black;
+  }
+</style>
+
+<!-- see tech note about the poster:  
+      https://rhul-cs-projects.github.io/CS1999-buggy-race-server/                -->
+<!--                                                                              -->
+<!-- anything you want here: make it beautiful! make it appealing! make it clear! -->
+<!-- you can drop images into static/assets if you want... and access them        -->
+<!-- here with <img src="/static/image-filename.png" alt="diagram" />             -->
+<!--                                                                              -->
+<!-- Of course you can edit static/app.css too if you want. It's your webserver,  -->
+<!--                                                                              -->
+<!-- Maybe... delete all these comments too :-)                                   -->
+
+
+<!-- below this point keep this section tag and paste in a <div> for every        -->
+<!-- task you attempted.                                                          -->
+
+<section class="cs1999-tasks" style="color: black;">
+
+  <div class="task" style="font-weight: bold;">
+    <h1 style="font-weight: bolder;">0</h1>
+    <h2 style="color: white;">0-GET</h2>
+    <p>
+      I forked the repo on GitHub and then used <code>git clone</code> to make a local copy.
+    </p>
+    <p>
+      Once the repo was on my own machine I was able to commit changes to version control
+      as I went along, and I pushed back up to my GitHub repo at the end of each day.
+      I followed GitHub's instructions and set up a SSH key so I didn't need to enter
+      username and password every time I pushed.
+    </p>
+    <h2 style="color: white;">0-RUN</h2>
+    <p>
+      I ran app.py and init_db.py and then went on my browser and by going on localhost:5000 I was able to view it.
+    </p>
+    <p>
+      Once I had the application on my machine I had to install the modules required
+      to make my python program run. I then ran init_db.py to create the database required
+      for my program. By then running app.py I was able to access my website by going to
+      localhost:5000.
+    </p>
+    <h2 style="color: white;">0-CHANGE</h2>
+    <p>
+      I made changes to my css and html to make it aesthetically pleasing to the eye of the user.
+    </p>
+    <p>
+      By opening <code>static\app.css</code> I was able to adjust how my page looks to my
+      liking, I then proceeded to play around with <code>\templates\</code> html files.
+    </p>
+    <h1>1</h1>
+    <h2 style="color: white;">1-ADD</h2>
+    <p>
+      Added more data to the form.
+    </p>
+    <p>
+      By opening <code>templates\buggy-form.html</code> I was able to modify the
+      buggy creation form my liking. Then by adding the new additions to the buggy
+      form I had to open <code>app.py</code> and add them in there so that they
+      get inputted into the database.
+    </p>
+    <h2 style="color: white;">1-VALID</h2>
+    <p>
+      I added some rules for the form.
+    </p>
+    <p>
+      By adjusting <code>templates\buggy-form.html</code> and by using python
+      <code>app.py</code> I added specific rules for the form and the database
+      that you are only allowed to enter numbers on the qty.
+    </p>
+    <h2 style="color: white;">1-STYLE</h2>
+    <p>
+      Made further changes to the css to make it more pleasing to the eye of the user.
+    </p>
+    <p>
+      Opening <code>static\app.css</code> I played around with a few more things to
+      see what can be adjusted. By doing some extra modifications I ended up
+      with the final result. 
+    </p>
+    <h1>2</h1>
+    <h2 style="color: white;">2-EDIT</h2>
+    <p>
+      Editing the form so that it reads values from the database.
+    </p>
+    <p>
+      After adjusting the <code>buggy-form.html</code> to my liking and that all the requirements
+      for the buggy are there, I had to make it read the values from the database and make it
+      so that the user is able to edit the form and submit values.
+    </p>
+    <h2 style="color: white;">2-FORM</h2>
+    <p>
+      Making the form better and easier to use.
+    </p>
+    <p>
+      I begun to adjust the form so that it is easier for the user to understand and I
+      laid it out in a way that is visually appealing to the user.
+    </p>
+    <h2 style="color: white;">2-COST</h2>
+    <p>
+      Calculating the cost for each item of my buggy.
+    </p>
+    <p>
+      By setting each item from the form to a specific cost and adding a total cost depending
+      on what the user selects I was able to calculate the cost.
+    </p>
+    <h2 style="color: white;">2-RULES</h2>
+    <p>
+      Adding rules to my program depending on the game rules.
+    </p>
+    <p>
+      By following the rules of the game and modifying <code>app.py</code> I was able to
+      make my program follow those rules, if they do not follow the rules it shows an error message.
+    </p>
+    <h1>3</h1>
+    <h2 style="color: white;">3-ENV</h2>
+    <p>
+      Changing the environments between development and production.
+    </p>
+    <p>
+      By installing flask and python-dotenv I was able to create a .flaskenv file that I
+      could change the environment I desire from there. 
+    </p>
+    <h2 style="color: white;">3-AUTOFILL</h2>
+    <p>
+      Create a button that autofills the form.
+    </p>
+    <p>
+      I created a button at the bottom of the form that resets the values to the original values
+      in the beginning. 
+    </p>
+    <h2 style="color: white;">3-MULTI</h2>
+    <p>
+      Create multiple buggies and save them in the database.
+    </p>
+    <p>
+      Modying <code>app.py</code> I was able to make it create multiple buggies and save them in the
+      database with different IDs. 
+    </p>
+    <h2 style="color: white;">3-DEL</h2>
+    <p>
+      Add a button that deletes the buggy you select.
+    </p>
+    <p>
+      By adding a new SQL line in the <code>app.py</code> that deletes the buggy selected and link it
+      with the button created in the <code>buggy.html</code> it will delete the buggy you chose to delete.
+    </p>
+    <h2 style="color: white;">3-FLAG</h2>
+    <p>
+      Show the flag on the bottom of the buggy.
+    </p>
+    <p>
+      By creating different if statements on my <code>buggy.html</code> depending on what the user chooses 
+      I was able to generate the flag. It changes according to the pattern and colours the user chooses.
+    </p>
+    <h2 style="color: white;">3-TEST</h2>
+    <p>
+      By checking if the default value cost is accurate I was able to test it.
+    </p>
+    <p>
+      By making sure that the default cost adds up to the correct value by manually adding up the numbers
+      I made sure that the program tests that by printing on the command if the cost is accurate or not.
+    </p>
+  </div>
+
+
+<!-- this closes the section: keep it in! -->
+</section>
+
+{% endblock %}
